@@ -5,7 +5,7 @@
     <title>Dashboard | Track Users </title>
     
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="{{ asset('assets/images/favicon.svg') }}">
 
     <!-- plugin css -->
     <link
@@ -23,17 +23,17 @@
 
     <!-- Bootstrap Css -->
     <link
-      href="assets/css/bootstrap.min.css"
+      href="{{ asset('assets/css/bootstrap.min.css ')}}"
       id="bootstrap-style"
       rel="stylesheet"
       type="text/css"
     />
     <!-- Icons Css -->
-    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.6.96/css/materialdesignicons.min.css">
     <!-- App Css-->
     <link
-      href="assets/css/app.min.css"
+      href="{{ asset('assets/css/app.min.css')}}"
       id="app-style"
       rel="stylesheet"
       type="text/css"
@@ -50,22 +50,22 @@
           <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-              <a href="index.html" class="logo logo-dark">
+              <a href="{{ route('login') }}" class="logo logo-dark">
                 <span class="logo-sm">
-                  <img src="assets/images/logo-sm.svg" alt="" height="24" />
+                  <img src="{{ asset('assets/images/logo-sm.svg') }}" alt="" height="24" />
                 </span>
                 <span class="logo-lg">
-                  <img src="assets/images/logo-sm.svg" alt="" height="24" />
+                  <img src="{{ asset('assets/images/logo-sm.svg') }}" alt="" height="24" />
                   <span class="logo-txt">Track Users</span>
                 </span>
               </a>
 
-              <a href="index.html" class="logo logo-light">
+              <a href="{{ route('login') }}" class="logo logo-light">
                 <span class="logo-sm">
-                  <img src="assets/images/logo-sm.svg" alt="" height="24" />
+                  <img src="{{ asset('assets/images/logo-sm.svg') }}" alt="" height="24" />
                 </span>
                 <span class="logo-lg">
-                  <img src="assets/images/logo-sm.svg" alt="" height="24" />
+                  <img src="{{ asset('assets/images/logo-sm.svg') }}" alt="" height="24" />
                   <span class="logo-txt">Track Users</span>
                 </span>
               </a>
@@ -260,15 +260,17 @@
                   ></i>
                   Profile</a
                 >
-                <a class="dropdown-item" href="auth-lock-screen.html"
-                  ><i class="mdi mdi-lock font-size-16 align-middle me-1"></i>
-                  Lock Screen</a
-                >
+              
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="auth-logout.html"
-                  ><i class="mdi mdi-logout font-size-16 align-middle me-1"></i>
-                  Logout</a
-                >
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                     document.getElementById('logout-form').submit();">
+                  <i class="mdi mdi-logout font-size-16 align-middle me-1"></i>
+                  Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
               </div>
             </div>
           </div>
@@ -285,7 +287,7 @@
               <li class="menu-title" data-key="t-menu">Menu</li>
 
               <li>
-                <a href="{{route('dash')}}">
+                <a href="{{ route('login') }}">
                   <i data-feather="home"></i>
                   <span data-key="t-dashboard">Dashboard</span>
                 </a>
@@ -355,24 +357,24 @@
     
 
     <!-- JAVASCRIPT -->
-    <script src="assets/libs/jquery/jquery.min.js"></script>
-    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
-    <script src="assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="assets/libs/node-waves/waves.min.js"></script>
-    <script src="assets/libs/feather-icons/feather.min.js"></script>
+    <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/metismenu/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}"></script>
     <!-- pace js -->
-    <script src="assets/libs/pace-js/pace.min.js"></script>
+    <script src="{{ asset('assets/libs/pace-js/pace.min.js') }}"></script>
 
     <!-- apexcharts -->
-    <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+    <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
 
     <!-- Plugins js-->
-    <script src="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="{{ asset('assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js') }}"></script>
     <!-- dashboard init -->
-    <script src="assets/js/pages/dashboard.init.js"></script>
+    <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
 
-    <script src="assets/js/app.js"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
   </body>
 </html>
