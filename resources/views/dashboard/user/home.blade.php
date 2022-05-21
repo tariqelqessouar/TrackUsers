@@ -73,7 +73,7 @@
             <div class="row align-items-center">
               <div class="col-6">
                 <span class="text-muted mb-3 lh-1 d-block text-truncate"
-                  >Number of Trades</span
+                  >Number of Connexion</span
                 >
                 <h4 class="mb-3">
                   <span class="counter-value" data-target="6258"
@@ -363,10 +363,10 @@
           <!-- end col -->
 
           <div class="col-xl-4">
-            <!-- card -->
-           
+          <!-- card -->
+           This is User
           <!-- end col -->
-        </div>
+          </div>
         <!-- end row -->
       </div>
       <!-- end col -->

@@ -9,11 +9,16 @@
 
     <!-- plugin css -->
     <link
-      href="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css"
+      href="{{ asset('assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css')}}"
       rel="stylesheet"
       type="text/css"
     />
-    
+    <!-- DataTables -->
+        <link href="{{ asset('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+
+        <!-- Responsive datatable examples -->
+        <link href="{{ asset('assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+
     <!-- preloader css -->
     {{-- <link
       rel="stylesheet"
@@ -139,7 +144,7 @@
               >
                 <img
                   id="header-lang-img"
-                  src="assets/images/flags/us.jpg"
+                  src="{{ asset('assets/images/flags/spain.jpg')}}"
                   alt="Header Language"
                   height="16"
                 />
@@ -152,7 +157,7 @@
                   data-lang="en"
                 >
                   <img
-                    src="assets/images/flags/us.jpg"
+                    src="{{ asset('assets/images/flags/us.jpg')}}"
                     alt="user-image"
                     class="me-1"
                     height="12"
@@ -166,7 +171,7 @@
                   data-lang="sp"
                 >
                   <img
-                    src="assets/images/flags/spain.jpg"
+                    src="{{ asset('assets/images/flags/spain.jpg')}}"
                     alt="user-image"
                     class="me-1"
                     height="12"
@@ -181,7 +186,7 @@
                   data-lang="gr"
                 >
                   <img
-                    src="assets/images/flags/germany.jpg"
+                    src="{{ asset('assets/images/flags/germany.jpg')}}"
                     alt="user-image"
                     class="me-1"
                     height="12"
@@ -196,7 +201,7 @@
                   data-lang="it"
                 >
                   <img
-                    src="assets/images/flags/italy.jpg"
+                    src="{{ asset('assets/images/flags/italy.jpg')}}"
                     alt="user-image"
                     class="me-1"
                     height="12"
@@ -211,7 +216,7 @@
                   data-lang="ru"
                 >
                   <img
-                    src="assets/images/flags/russia.jpg"
+                    src="{{ asset('assets/images/flags/russia.jpg')}}"
                     alt="user-image"
                     class="me-1"
                     height="12"
@@ -244,11 +249,11 @@
               >
                 <img
                   class="rounded-circle header-profile-user"
-                  src="assets/images/users/avatar-1.jpg"
+                  src="{{ asset('assets/images/users/avatar-1.jpg')}}"
                   alt="Header Avatar"
                 />
                 <span class="d-none d-xl-inline-block ms-1 fw-medium"
-                  >Shawn L.</span
+                  >{{ Auth::user()->nomUser }}</span
                 >
                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
               </button>
@@ -262,13 +267,13 @@
                 >
               
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{ route('logout') }}"
+                <a class="dropdown-item" href="{{ route('user.logout') }}"
                   onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
                   <i class="mdi mdi-logout font-size-16 align-middle me-1"></i>
                   Logout
                 </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                <form id="logout-form" action="{{ route('user.logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
               </div>
@@ -301,12 +306,12 @@
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
                   <li>
-                    <a href="apps-contacts-grid.html" data-key="t-user-grid"
+                    <a href="{{route('UsersGrid')}}" data-key="t-user-grid"
                     >Users Grid</a
                   >
                   </li>
                   <li>
-                    <a href="apps-contacts-list.html" data-key="t-user-list"
+                    <a href="{{ route('UsersList') }}" data-key="t-user-list"
                           >Users List</a
                         >
                   </li>
@@ -328,6 +333,9 @@
       <div class="main-content">
         {{-- start page-content --}}
         @yield('dashgraphs')
+        @yield('UsersGrid')
+        @yield('UsersList')
+        
         <!-- End Page-content -->
 
         <footer class="footer">

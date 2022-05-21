@@ -47,6 +47,7 @@
           <div class="col-xxl-3 col-lg-4 col-md-5">
              @yield('login')
              @yield('SignUp')
+             @yield('registeration')
              @yield('emailrecover')
           </div>
           <!-- end col -->
