@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
+
     function create(Request $request){
         //validate inputs
         $request->validate([
@@ -59,7 +61,8 @@ class UserController extends Controller
             }else{
                 return redirect()->route('/');
             }
-        } return redirect()->route('user.login')->with('fail','The Email or Password is not Correct ');
+        } 
+        return redirect()->route('user.login')->with('fail','The Email or Password is not Correct ');
     }
 
     function logout(){

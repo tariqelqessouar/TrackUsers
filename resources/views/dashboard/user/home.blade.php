@@ -364,7 +364,7 @@
 
           <div class="col-xl-4">
           <!-- card -->
-           This is User
+           This is User page
           <!-- end col -->
           </div>
         <!-- end row -->

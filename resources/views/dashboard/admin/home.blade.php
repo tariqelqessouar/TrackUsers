@@ -364,7 +364,7 @@
 
           <div class="col-xl-4">
           <!-- card -->
-           This is Admin
+           This is Admin page
           <!-- end col -->
           </div>
         <!-- end row -->

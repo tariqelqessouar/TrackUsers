@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
@@ -23,7 +24,8 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                 //return redirect()->route('user.home');
+                // if(Auth::user()->role ==)
+                // return redirect()->route('user.home');
                 return $next($request); 
             }
         }
