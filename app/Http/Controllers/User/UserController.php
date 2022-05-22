@@ -45,11 +45,21 @@ class UserController extends Controller
         
         $creds = $request->only('email','password');
         
-        if(Auth::attempt($creds)){
-            return redirect()->route('user.home');
-        }else{
-            return redirect()->route('user.login')->with('fail','The Email or Password is not Correct ');
-        }
+        // if(Auth::attempt($creds)){
+        //     return redirect()->route('user.home');
+        // }else{
+        //     return redirect()->route('user.login')->with('fail','The Email or Password is not Correct ');
+        // }
+         if(auth()->attempt($creds))
+        {
+            if (auth()->user()->role == 'admin') {
+                return redirect()->route('admin.home');
+            }else if (auth()->user()->role == 'manager') {
+                return redirect()->route('user.home');
+            }else{
+                return redirect()->route('/');
+            }
+        } return redirect()->route('user.login')->with('fail','The Email or Password is not Correct ');
     }
 
     function logout(){

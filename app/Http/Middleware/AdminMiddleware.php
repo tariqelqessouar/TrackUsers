@@ -15,12 +15,18 @@ class AdminMiddleware
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next )
     {
-        if(Auth::check() && Auth::user()->role == 'admin'){
+        if(auth()->user()->role == 'admin'){
             return $next($request);
         }
-
-        return redirect()->route('user.home');
+          
+        return response()->json(['You do not have permission to access for this page.']);
+        /* return response()->view('errors.check-permission'); */
+        // if(Auth::check() && Auth::user()->role == 'admin'){
+        //     return $next($request);
+        // }
+    
+        // return redirect()->route('user.home');
     }
 }

@@ -32,7 +32,7 @@ Route::prefix('user')->name('user.')->group(function(){
         Route::post('/check',[UserController::class,'check'])->name('check');
 
     });
-    Route::middleware(['auth','PreventBackHistory','isAdmin'])->group(function(){
+    Route::middleware(['auth','isAdmin'])->group(function(){
         Route::view('/home','dashboard.admin.home')->name('home');
         Route::post('/logout',[UserController::class,'logout'])->name('logout');
     });
@@ -41,7 +41,7 @@ Route::prefix('user')->name('user.')->group(function(){
 });
 Route::prefix('Admin')->name('admin.')->group(function(){
     
-    Route::middleware(['auth','PreventBackHistory','isAdmin'])->group(function(){
+    Route::middleware(['auth','isAdmin'])->group(function(){
         Route::view('/home','dashboard.admin.home')->name('home');
         Route::post('/logout',[UserController::class,'logout'])->name('logout');
     });
