@@ -44,18 +44,14 @@ Route::prefix('Admin')->name('admin.')->group(function(){
     Route::middleware(['auth','user-access'])->group(function(){
         Route::view('/home','dashboard.admin.home')->name('home');
         Route::post('/logout',[UserController::class,'logout'])->name('logout');
+        Route::get('/ListUsers', [AdminController::class,'GetUsersList'])->name('UsersList');
+        Route::get('/GridUsers',[AdminController::class,'GetGridUsers'])->name('UsersGrid');
+        Route::delete('deleteuser/{id}', [AdminController::class, 'destroy'])->name('remove');
+        Route::get('editUser/{id}', [AdminController::class, 'edit'])->name('edit');
+        Route::put('updateUser/{id}', [AdminController::class, 'update'])->name('update');
     });
-
 });
 
-
-Route::get('/GridUsers', function () {
-    return view('/Users/UsersGrid');
-})->name('UsersGrid');
-
-Route::get('/ListUsers', function () {
-    return view('/Users/UsersList');
-})->name('UsersList');
 
 
 

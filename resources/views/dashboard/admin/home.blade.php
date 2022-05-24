@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+
+
 @section('dashgraphs')
 <div class="page-content">
   <div class="container-fluid">

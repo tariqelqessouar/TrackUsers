@@ -249,7 +249,7 @@
               >
                 <img
                   class="rounded-circle header-profile-user"
-                  src="{{ asset('assets/images/users/avatar-1.jpg')}}"
+                  src="{{ asset('images/usersAvatar/'.Auth::user()->profile_img)}}"
                   alt="Header Avatar"
                 />
                 <span class="d-none d-xl-inline-block ms-1 fw-medium"
@@ -306,12 +306,12 @@
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
                   <li>
-                    <a href="{{route('UsersGrid')}}" data-key="t-user-grid"
+                    <a href="{{ route('admin.UsersGrid') }}" data-key="t-user-grid"
                     >Users Grid</a
                   >
                   </li>
                   <li>
-                    <a href="{{ route('UsersList') }}" data-key="t-user-list"
+                    <a href="{{ route('admin.UsersList') }}" data-key="t-user-list"
                           >Users List</a
                         >
                   </li>

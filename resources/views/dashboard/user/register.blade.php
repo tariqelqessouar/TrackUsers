@@ -9,7 +9,7 @@
     <div class="w-100">
         <div class="d-flex flex-column h-100">
             <div class="mb-4 mb-md-5 text-center">
-                <a href="index.html" class="d-block auth-logo">
+                <a href="{{ route('admin.home') }}" class="d-block auth-logo">
                     <img
                         src="{{ asset('assets/images/logo-sm.svg')}}"
                         alt=""
@@ -28,6 +28,7 @@
                     action="{{route('user.create')}}"
                     method="POST"
                     autocomplete="off"
+                    enctype="multipart/form-data"
                 >
                 @if (Session::get('success'))
                     <div class="alert alert-success">
@@ -85,6 +86,40 @@
                         
                     </div>
 
+                    <div class="mb-3" style="padding-top: 17px;">
+                        <label for="" class="form-label"
+                            >Company Name</label
+                        >
+                        <input
+                            type="text"
+                            name="company_name"
+                            class="form-control"
+                            id="company_name"
+                            placeholder="Enter Company Name"
+                            value="{{ old('company_name') }}"
+                            
+                        />
+                        <span class="text-danger">@error('company_name'){{ $message }}@enderror</span>
+                        
+                    </div>
+                    
+                    <div class="mb-3" style="padding-top: 17px;">
+                        <label for="" class="form-label"
+                            >Profile Image</label
+                        >
+                        <input
+                            type="file"
+                            name="profile_img"
+                            class="form-control"
+                            id="profile_img"
+                            placeholder="Enter Profile Image"
+                            value="{{ old('profile_img') }}"
+                            
+                        />
+                        <span class="text-danger">@error('profile_img'){{ $message }}@enderror</span>
+                        
+                    </div>
+
                     <div class="mb-3">
                         <label for="userpassword" class="form-label"
                             >Password</label
@@ -115,15 +150,19 @@
                         <span class="text-danger">@error('confimpassword'){{ $message }}@enderror</span>
                         
                     </div>
-                    <div class="mb-4"></div>
-                    <div class="mb-3">
+                    <div class="mb-4">
+                        
+                    </div>
+                    <div class="mb-3" >
                         <button
-                            class="btn btn-primary w-100 waves-effect waves-light"
+                            class="btn btn-primary w-81 waves-effect waves-light"
                             type="submit"
                         >
                             Register
                         </button>
+                        <a class="btn btn-danger " href="{{url()->previous()}}">Cancel</a>
                     </div>
+                    
                 </form>
 
             </div>

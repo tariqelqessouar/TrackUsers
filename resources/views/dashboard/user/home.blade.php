@@ -1,7 +1,9 @@
 @extends('layouts.dashboard')
 
+
+
 @section('dashgraphs')
-<div class="page-content">
+{{-- <div class="page-content">
   <div class="container-fluid">
     <!-- start page title -->
     <div class="row">
@@ -1664,5 +1666,5 @@
     <!-- end row -->
   </div>
   <!-- container-fluid -->
-</div>
+</div> --}}
 @endsection

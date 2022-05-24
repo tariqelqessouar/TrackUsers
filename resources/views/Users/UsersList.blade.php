@@ -45,7 +45,7 @@
                             <li class="nav-item">
                                 <a
                                     class="nav-link active"
-                                    href="{{ route('UsersList') }}"
+                                    href="{{ route('admin.UsersList') }}"
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="top"
                                     title="List"
@@ -55,7 +55,7 @@
                             <li class="nav-item">
                                 <a
                                     class="nav-link"
-                                    href="{{ route('UsersGrid') }}"
+                                    href="#"
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="top"
                                     title="Grid"
