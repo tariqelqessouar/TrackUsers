@@ -10,13 +10,30 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
      function GetUsersList(){
-         $users = User::where('id', '!=', auth()->id())->get();
-          return view('dashboard.admin.UsersList',compact('users'));
+
+         $usersnumber = User::where('id', '!=', auth()->id())
+          ->where('role','!=', 'admin')
+          ->count();
+        
+
+        $users = User::where('id', '!=', auth()->id())
+          ->where('role','!=', 'admin')
+          ->simplePaginate(10);
+        //  ->get();
+          return view('dashboard.admin.UsersList',compact('users','usersnumber'));
      }
 
      function GetGridUsers(){
-         $users = User::where('id', '!=', auth()->id())->get();
-          return view('dashboard.admin.UsersGrid',compact('users'));
+        $usersnumber = User::where('id', '!=', auth()->id())
+          ->where('role','!=', 'admin')
+          ->count();
+        
+
+        $users = User::where('id', '!=', auth()->id())
+          ->where('role','!=', 'admin')
+          ->simplePaginate(8);
+        //  ->get();
+          return view('dashboard.admin.UsersGrid',compact('users','usersnumber'));
      }
 
      function edit($id)

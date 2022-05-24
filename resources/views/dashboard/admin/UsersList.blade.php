@@ -31,7 +31,7 @@
                 <div class="mb-3">
                     <h5 class="card-title">
                         Users Number
-                        <span class="text-muted fw-normal ms-2">({{ $users->count()}})</span>
+                        <span class="text-muted fw-normal ms-2">({{$usersnumber}})</span>
                     </h5>
                 </div>
             </div>
@@ -179,6 +179,20 @@
             <!-- end table -->
         </div>
         <!-- end table responsive -->
+        <div class="row g-0 align-items-center mb-4 ">
+            <div class="col-sm-6">
+                <div>
+                    <p class="mb-sm-0">Showing {{ $users->count() }} to 10 of {{ $usersnumber }} entries</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="float-sm-end">
+                     {{$users->links()}}
+                </div>
+            </div>
+            
+        </div> 
+        <!-- end row -->
     </div>
     <!-- container-fluid -->
 </div>

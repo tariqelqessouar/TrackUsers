@@ -1,3 +1,4 @@
+
 @extends('layouts.dashboard')
 
 @section('UsersGrid')
@@ -29,7 +30,7 @@
                 <div class="mb-3">
                     <h5 class="card-title">
                         Users Number
-                        <span class="text-muted fw-normal ms-2">({{$users->count()}})</span>
+                        <span class="text-muted fw-normal ms-2">({{$usersnumber}})</span>
                     </h5>
                 </div>
             </div>
@@ -138,45 +139,19 @@
            @endforeach
         </div>
         <!-- end row -->
-
-        <div class="row g-0 align-items-center mb-4 ">
+         <div class="row g-0 align-items-center mb-4 ">
             <div class="col-sm-6">
                 <div>
-                    <p class="mb-sm-0">Showing 1 to 10 of 57 entries</p>
+                    <p class="mb-sm-0">Showing {{ $users->count() }} to 8 of {{ $usersnumber }} entries</p>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="float-sm-end">
-                    <ul class="pagination mb-sm-0">
-                        <li class="page-item disabled">
-                            <a href="#" class="page-link"
-                                ><i class="mdi mdi-chevron-left"></i
-                            ></a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link">1</a>
-                        </li>
-                        <li class="page-item active">
-                            <a href="#" class="page-link">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link">3</a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link">4</a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link">5</a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link"
-                                ><i class="mdi mdi-chevron-right"></i
-                            ></a>
-                        </li>
-                    </ul>
+                     {{$users->links()}}
                 </div>
             </div>
-        </div>
+            
+        </div> 
         <!-- end row -->
     </div>
     <!-- container-fluid -->
